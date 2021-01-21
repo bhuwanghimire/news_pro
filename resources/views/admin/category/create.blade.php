@@ -15,6 +15,7 @@
                                 <div class="card-body ">
                                     <form method="post" action="{{route('category.store')}}">
                                         @csrf
+                                       
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Category</label>
                                             <input type="text" name="category" class="form-control" id="category" placeholder="Enter Category">

@@ -70,8 +70,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        return "dd";
+    {   
+        $page_name = "Category";
+         $category = Category::find($id);
+         return view('admin.category.edit',compact('category','page_name'));
     }
 
     /**
@@ -83,7 +85,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+
+        
+         $category->name = $request->category;
+         $category->save();
+         return redirect()->route('category.index');
     }
 
     /**
