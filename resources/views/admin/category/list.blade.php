@@ -2,7 +2,7 @@
        @extends('admin.layout.master')
        @section('content')
        <div class=" text-center">
-
+        
          <a href="{{route('category.create')}}"><button type="submit" class="btn btn-primary " >Insert </button></a>
        </div>
      
