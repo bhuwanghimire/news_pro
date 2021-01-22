@@ -12,7 +12,17 @@
                                     </div>
                                     <div class="spur-card-title"> {{$page_name}}</div>
                                 </div>
+                                 
                                 <div class="card-body ">
+                                 @if($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                        @foreach ($errors->all() as $errors)
+                                        <li>{{$errors}}</li>
+                                        @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                     <form method="post" action="{{route('category.store')}}">
                                         @csrf
                                        

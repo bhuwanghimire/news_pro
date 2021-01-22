@@ -8,6 +8,7 @@
     <script src="{{asset('admins/js/chart-js-config.js')}}"></script>
 
      <link rel="stylesheet" href="{{asset('toastr/toastr.css')}}">
+   
 
     
 

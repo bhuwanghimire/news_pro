@@ -15,6 +15,9 @@
                     <a href="{{route('category.index')}}" class="dash-nav-item">
                    <i class="fas fa-address-book"></i> Category </a>
 
+                    <a href="{{route('post.index')}}" class="dash-nav-item">
+                   <i class="fas fa-address-book"></i> Post </a>
+
                 <div class="dash-nav-dropdown ">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-cube"></i> Components </a>

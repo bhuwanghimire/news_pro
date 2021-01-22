@@ -8,6 +8,7 @@ use App\Http\Controllers\DetailsPageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\PostController;
 
 
 /*
@@ -42,7 +43,8 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::resource('profile', ProfileController::class);
     Route::resource('category', CategoryController::class);
     Route::get('/status/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'status'])->name('status.category');
-
+    Route::resource('post', PostController::class);
+    Route::get('/status/{id}', [App\Http\Controllers\Admin\PostController::class, 'status'])->name('status.post');
 
     
 

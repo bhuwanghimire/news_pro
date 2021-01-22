@@ -3,7 +3,7 @@
        @section('content')
        <div class=" text-center">
         
-         <a href="{{route('category.create')}}"><button type="submit" class="btn btn-primary " >Insert </button></a>
+         <a href="{{route('post.create')}}"><button type="submit" class="btn btn-primary " >Insert </button></a>
        </div>
      
         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -12,24 +12,33 @@
        
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Total Views</th>
                 <th>Status</th>
                 <th>Option</th>
                 
             </tr>
         </thead>
         <tbody>
-             @foreach($category as $categories)
+             @foreach($data as $datas)
             <tr>
-                <td>{{$categories->id}}</td>
-                <td>{{$categories->name}}</td>
                 <td>
-                  <form method="put" action="{{route('status.category',['id' => $categories->id])}}">
-                     <!-- <form method="put" action="{{route('status.category',['id' => $categories->id])}}"> -->
+                    @if(file_exists(public_path('/post/').$datas->thumb_image))
+                    <img src="{{asset('public/post')}}/{{$datas->thumb_image}}" alt="" class="img-fluid" srcset="">
+                </td>
+                @endif
+                <td>{{$datas->title}}</td>
+                <td></td>
+                <td>{{$datas->title}}</td>
+                <td>{{$datas->view_count}}</td>
+                <td>
+                     <form method="put" action="{{route('status.post',['id' => $datas->id])}}">
                          {!! method_field('put') !!}
 
                                         @csrf
-                                       @if($categories->status === 1)
+                                       @if($datas->status === 1)
                                           <button type="submit" class="btn btn-danger">Unpublish</button>
                                         @else
 
@@ -38,8 +47,8 @@
                                     </form>
                 </td>
                 <td>
-               <form action="{{route('category.update',$categories->id)}}" method="post">
-               <a href="{{route('category.edit',$categories->id)}}" class="btn btn-success btn-md" role="button">Edit</a>
+               <form action="{{route('post.update',$datas->id)}}" method="post">
+               <a href="{{route('post.edit',$datas->id)}}" class="btn btn-success btn-md" role="button">Edit</a>
                    {{ method_field('DELETE') }}
                    @csrf
               <button type="submit" class="btn btn-danger">Delete</button></td>
@@ -49,7 +58,7 @@
            
            @endforeach
         </tbody>
-        <tfoot>
+        <!-- <tfoot>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -57,7 +66,7 @@
                 <th>Action</th>
              
             </tr>
-        </tfoot>
+        </tfoot> -->
     </table>
        
     
