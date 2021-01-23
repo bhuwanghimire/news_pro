@@ -17,6 +17,7 @@
                 <th>Author</th>
                 <th>Total Views</th>
                 <th>Status</th>
+                <th>Hot news</th>
                 <th>Option</th>
                 
             </tr>
@@ -31,7 +32,7 @@
                 </td>
                 @endif
                 <td>{{$datas->title}}</td>
-                <td></td>
+                <td>{{$datas->user->name}}</td>
                 <td>{{$datas->view_count}}</td>
                
                 <td>
@@ -47,8 +48,21 @@
                                       @endif
                                     </form>
                 </td>
+                 <td>
+                     <form method="put" action="{{route('hot.post',['id' => $datas->id])}}">
+                         {!! method_field('put') !!}
+
+                                        @csrf
+                                       @if($datas->hot_news === 1)
+                                          <button type="submit" class="btn btn-danger">No</button>
+                                        @else
+
+                                     <button type="submit" class="btn btn-success">Yes</button>
+                                      @endif
+                                    </form>
+                </td>
                 <td>
-               <form action="{{route('post.update',$datas->id)}}" method="post">
+               <form action="{{route('post.destroy',$datas->id)}}" method="post">
                <a href="{{route('post.edit',$datas->id)}}" class="btn btn-success btn-md" role="button">Edit</a>
                    {{ method_field('DELETE') }}
                    @csrf

@@ -45,6 +45,7 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::get('/status/category/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'status'])->name('status.category');
     Route::resource('post', PostController::class);
     Route::get('/status/post/{id}', [App\Http\Controllers\Admin\PostController::class, 'status'])->name('status.post');
+    Route::get('/hot/post/{id}', [App\Http\Controllers\Admin\PostController::class, 'hot'])->name('hot.post');
 
     
 

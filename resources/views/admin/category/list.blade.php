@@ -37,7 +37,7 @@
                                     </form>
                 </td>
                 <td>
-               <form action="{{route('category.update',$categories->id)}}" method="post">
+               <form action="{{route('category.destroy',$categories->id)}}" method="post">
                <a href="{{route('category.edit',$categories->id)}}" class="btn btn-success btn-md" role="button">Edit</a>
                    {{ method_field('DELETE') }}
                    @csrf
