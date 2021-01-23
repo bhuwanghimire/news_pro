@@ -24,8 +24,7 @@
                 <td>{{$categories->id}}</td>
                 <td>{{$categories->name}}</td>
                 <td>
-                  <form method="put" action="{{route('status.category',['id' => $categories->id])}}">
-                     <!-- <form method="put" action="{{route('status.category',['id' => $categories->id])}}"> -->
+                     <form method="put" action="{{route('status.category',['id' => $categories->id])}}">
                          {!! method_field('put') !!}
 
                                         @csrf

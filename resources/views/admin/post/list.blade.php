@@ -24,15 +24,16 @@
         <tbody>
              @foreach($data as $datas)
             <tr>
+            <td>{{$datas->id}}</td>
                 <td>
                     @if(file_exists(public_path('/post/').$datas->thumb_image))
-                    <img src="{{asset('public/post')}}/{{$datas->thumb_image}}" alt="" class="img-fluid" srcset="">
+                    <img src="{{asset('post')}}/{{$datas->thumb_image}}" alt="" class="img-fluid" srcset="">
                 </td>
                 @endif
                 <td>{{$datas->title}}</td>
                 <td></td>
-                <td>{{$datas->title}}</td>
                 <td>{{$datas->view_count}}</td>
+               
                 <td>
                      <form method="put" action="{{route('status.post',['id' => $datas->id])}}">
                          {!! method_field('put') !!}

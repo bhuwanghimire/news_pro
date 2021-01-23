@@ -42,9 +42,9 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
 
     Route::resource('profile', ProfileController::class);
     Route::resource('category', CategoryController::class);
-    Route::get('/status/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'status'])->name('status.category');
+    Route::get('/status/category/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'status'])->name('status.category');
     Route::resource('post', PostController::class);
-    Route::get('/status/{id}', [App\Http\Controllers\Admin\PostController::class, 'status'])->name('status.post');
+    Route::get('/status/post/{id}', [App\Http\Controllers\Admin\PostController::class, 'status'])->name('status.post');
 
     
 

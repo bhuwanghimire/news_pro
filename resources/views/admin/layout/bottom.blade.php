@@ -29,5 +29,5 @@
             $('#example').DataTable();
        } );
     </script>
-
+@yield('script')
    
