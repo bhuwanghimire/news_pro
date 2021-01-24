@@ -66,7 +66,9 @@
                <a href="{{route('post.edit',$datas->id)}}" class="btn btn-success btn-md" role="button">Edit</a>
                    {{ method_field('DELETE') }}
                    @csrf
+                    <a href="{{route('comments.post',$datas->id)}}" class="btn btn-info btn-md" role="button">Comments</a>
               <button type="submit" class="btn btn-danger">Delete</button></td>
+             
                </form>
                 
             </tr>

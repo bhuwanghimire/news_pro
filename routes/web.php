@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\CommentController;
 
 
 /*
@@ -46,6 +47,12 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::resource('post', PostController::class);
     Route::get('/status/post/{id}', [App\Http\Controllers\Admin\PostController::class, 'status'])->name('status.post');
     Route::get('/hot/post/{id}', [App\Http\Controllers\Admin\PostController::class, 'hot'])->name('hot.post');
+
+    Route::get('/comments/post/{id}', [App\Http\Controllers\Admin\CommentController::class, 'index'])->name('comments.post');
+    Route::get('status/comments/{id}', [App\Http\Controllers\Admin\CommentController::class, 'status'])->name('status.comment');
+    Route::get('reply/comments/{id}', [App\Http\Controllers\Admin\CommentController::class, 'reply'])->name('comment.replyform');
+    Route::get('reply/comments/post/{id}', [App\Http\Controllers\Admin\CommentController::class, 'store'])->name('comment.reply');
+
 
     
 
