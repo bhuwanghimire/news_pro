@@ -6,7 +6,7 @@
                 <a href="index.html" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
             </header>
             <nav class="dash-nav-list">
-                <a href="index.html" class="dash-nav-item">
+                <a href="{{route('dashboard')}}" class="dash-nav-item">
                     <i class="fas fa-home"></i> Dashboard </a>
 
                 <a href="{{route('profile.index')}}" class="dash-nav-item">
@@ -17,6 +17,9 @@
 
                     <a href="{{route('post.index')}}" class="dash-nav-item">
                    <i class="fas fa-address-book"></i> Post </a>
+
+                    <a href="{{route('setting')}}" class="dash-nav-item">
+                   <i class="fas fa-address-book"></i> Setting </a>
 
                 <div class="dash-nav-dropdown ">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">

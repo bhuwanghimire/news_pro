@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CommentController;
-
+use App\Http\Controllers\Admin\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ Route::get('/details', [DetailsPageController::class, 'index']);
 
 
 Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
-    Route::get('/',[DashboardController::class,'index']);
+    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
     // Route::get('/category',[CategoryController::class,'index',]);
     // Route::get('/category/create',[CategoryController::class,'create']);
     // Route::get('/category/edit',[CategoryController::class,'edit',]);
@@ -52,6 +52,9 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::get('status/comments/{id}', [App\Http\Controllers\Admin\CommentController::class, 'status'])->name('status.comment');
     Route::get('reply/comments/{id}', [App\Http\Controllers\Admin\CommentController::class, 'reply'])->name('comment.replyform');
     Route::get('reply/comments/post/{id}', [App\Http\Controllers\Admin\CommentController::class, 'store'])->name('comment.reply');
+
+     Route::get('setting/', [App\Http\Controllers\Admin\SettingController::class, 'index'])->name('setting');
+    Route::get('setting/update', [App\Http\Controllers\Admin\SettingController::class, 'update'])->name('setting.update');
 
 
     
